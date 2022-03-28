@@ -19,3 +19,6 @@
       sudo chmod 777 Public ; \
       sudo chmod 733 Public/Drop\ Box ; \
       } 2> /dev/null
+
+## Find App By Name
+    mdfind -name [application name]
