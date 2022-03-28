@@ -22,3 +22,6 @@
 
 ## Find App By Name
     mdfind -name [application name]
+
+## reset user permissions
+    diskutil                       resetUserPermissions        /               `id        -u`
