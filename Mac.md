@@ -17,3 +17,19 @@
 
 ## Change Password
  sudo dscl . -passwd /Users/username password
+
+
+## How do I apply all recommended updates?
+     All updates that are recommended for your system:
+     sudo softwareupdate -r
+
+## Updating Mac using the Terminal app
+    To install all updates that are applicable to your system, enter:
+    sudo softwareupdate -i -a
+
+## Install all but make sure you ignore ‘JavaForOSX’ updates:
+     sudo softwareupdate --ignore JavaForOSX
+
+## To clear the list ignored updates, enter:
+     sudo softwareupdate --reset-ignored
+
