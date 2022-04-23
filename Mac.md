@@ -51,4 +51,15 @@ In the end this is what my /etc/hosts file looked like:
 255.255.255.255 broadcasthost
 ::1             TPLNK-BPAXTON3.local
      
+#Create Ram Disk For Intellij
+diskutil erasevolume HFS+ 'RAM Disk' `hdiutil attach -nomount ram://XXXXX`
+Replace the X characters with a number that represents the block size for the total capacity of your RAM Disk. Calculate this number by multiplying your desired size of disk in megabytes by 2048. In our example, we’ll create a 4 GB RAM Disk, which requires a number of 8388608 (4096 * 2048). Input this number in place of the X characters in the command above:
+diskutil erasevolume HFS+ 'RAM Disk' `hdiutil attach -nomount ram://8388608`
 
+
+diskutil erasevolume HFS+ JetBrainsKeys `hdiutil attach -nomount ram://2097152 `
+mkdir -p /Volumes/JetBrainsKeys/intellij/caches
+mkdir -p /Volumes/JetBrainsKeys/tbcore/out
+chmod -R 777 /Volumes/JetBrainsKeys
+
+ln -s '/Volumes/JetBrainsKeys/intellij/caches' '/Users/bpaxton/Library/Caches/JetBrains/IntelliJIdea2022.1/caches'
