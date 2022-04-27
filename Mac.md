@@ -63,3 +63,52 @@ mkdir -p /Volumes/JetBrainsKeys/tbcore/out
 chmod -R 777 /Volumes/JetBrainsKeys
 
 ln -s '/Volumes/JetBrainsKeys/intellij/caches' '/Users/bpaxton/Library/Caches/JetBrains/IntelliJIdea2022.1/caches'
+
+# JAVA
+2.1 On Mac OS X 10.5 or later, we can use /usr/libexec/java_home to return the location of the default JDK.
+
+Terminal
+% `/usr/libexec/java_home`
+
+         /Library/Java/JavaVirtualMachines/jdk-16.jdk/Contents/Home  
+
+2.2 Also, find all installed JDKs.
+
+Terminal
+% `/usr/libexec/java_home -V`
+
+   Matching Java Virtual Machines (4):
+    16 (x86_64) "Oracle Corporation" - "OpenJDK 16-ea" /Library/Java/JavaVirtualMachines/jdk-16.jdk/Contents/Home
+    15.0.1 (x86_64) "UNDEFINED" - "OpenJDK 15.0.1" /usr/local/Cellar/openjdk/15.0.1/libexec/openjdk.jdk/Contents/Home
+    14.0.2 (x86_64) "AdoptOpenJDK" - "AdoptOpenJDK 14" /Library/Java/JavaVirtualMachines/adoptopenjdk-14.jdk/Contents/Home
+    1.8.0_275 (x86_64) "UNDEFINED" - "OpenJDK 8" /usr/local/Cellar/openjdk@8/1.8.0+275/libexec/openjdk.jdk/Contents/Home
+    /Library/Java/JavaVirtualMachines/jdk-16.jdk/Contents/Home  
+
+2.3 Also, run a specified JDK command.
+
+Terminal
+% `/usr/libexec/java_home -v1.8`
+
+  /usr/local/Cellar/openjdk@8/1.8.0+275/libexec/openjdk.jdk/Contents/Home  
+  
+### On macOS 10.15 Catalina and later, the zsh is the default Terminal shell, and we can set the $JAVA_HOME environment variable in either ~/.zshenv or ~/.zshrc.
+
+3.1 Open the ~/.zshenv
+
+Terminal
+
+% `nano ~/.zshenv`
+
+3.2 Add the following content
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+3.3 Source the file and print the $JAVA_HOME, done.
+
+Terminal
+
+% `source ~/.zshenv`
+
+% `echo $JAVA_HOME`
+
+    /Library/Java/JavaVirtualMachines/jdk-16.jdk/Contents/Home 
