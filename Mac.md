@@ -3,18 +3,22 @@
 
 
 ## Add user to group
+```bash
  sudo dseditgroup -o edit -a john -t user admin
  sudo dseditgroup -o edit -a john -t user wheel
+```
 ### add user to SUDO
+```bash
   su AdminUser
-  authentication, and then:
+```  
+  
    
    Now, as Adminuser, use the visudo command to edit the sudoers file:
-
+```bash
       Adminuser % sudo visudo
       Add the following line to the sudoers file:
       StandardJoeUser ALL = (ALL) ALL
-
+```
 ## Change Password
  sudo dscl . -passwd /Users/username password
 
